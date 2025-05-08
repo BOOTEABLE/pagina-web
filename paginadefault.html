@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noctis - La morada de los Daemon</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      background-color: #000000;
+      background-image: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #videoRobot {
+  position: absolute;
+  top: 165px; /* justo arriba del cuadro */
+  left: 50%;
+  width: 150px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+    .container {
+      background: #1e1e1e;
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 0.3rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      animation: glowEffect 3s infinite alternate;
+    }
+
+    .sub {
+      font-size: 1rem;
+      color: #888;
+      font-style: italic;
+      margin-top: -0.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: #ccc;
+      margin-top: 0;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background-color: #e2844a;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3b78c3;
+    }
+
+    @keyframes glowEffect {
+      0% {
+        text-shadow: 0 0 5px rgba(43, 226, 141, 0.5), 0 0 10px rgba(43, 226, 98, 0.5);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(43, 226, 107, 0.9), 0 0 40px rgba(43, 226, 113, 0.7);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- VIDEO ENCIMA DEL CUADRO -->
+  <video autoplay muted loop id="videoRobot">
+    <source src="robot.webm" type="video/webm">
+    Tu navegador no soporta el formato de video.
+  </video>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container">
+    <div class="logo">NOCTIS</div>
+    <div class="sub">Donde tu web crece, sin que nada te cueste.</div>
+    <h1 id="greeting">Bienvenido</h1>
+    <h2>Nos complace contar con su visita</h2>
+    <button id="btnName">Personalizar saludo</button>
+  </div>
+
+  <!-- SCRIPT DE INTERACCIÓN -->
+  <script>
+    const greetingEl = document.getElementById('greeting');
+    const btn = document.getElementById('btnName');
+
+    function askName() {
+      const name = prompt('¿Podría indicarnos su nombre, por favor?', '');
+      if (name && name.trim() !== '') {
+        greetingEl.textContent = `Bienvenido, ${name.trim()}`;
+      } else {
+        greetingEl.textContent = 'Bienvenido, estimado visitante';
+      }
+    }
+
+    greetingEl.textContent = 'Bienvenido';
+    btn.addEventListener('click', askName);
+  </script>
+</body>
+</html>
