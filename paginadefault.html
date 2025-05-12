@@ -117,27 +117,9 @@
 
     <div class="logo">NOCTIS</div>
     <div class="sub">Donde tu web crece, sin que nada te cueste.</div>
-    <h1 id="greeting">Bienvenido</h1>
+    <h1 id="greeting">Bienvenido, {{USUARIO}}</h1>
     <h2>Nos complace contar con su visita</h2>
     <button id="btnName">Personalizar saludo</button>
-  </div>
-
-  <!-- SCRIPT DE INTERACCIÓN -->
-  <script>
-    const greetingEl = document.getElementById('greeting');
-    const btn = document.getElementById('btnName');
-
-    function askName() {
-      const name = prompt('¿Podría indicarnos su nombre, por favor?', '');
-      if (name && name.trim() !== '') {
-        greetingEl.textContent = `Bienvenido, ${name.trim()}`;
-      } else {
-        greetingEl.textContent = 'Bienvenido, estimado visitante';
-      }
-    }
-
-    greetingEl.textContent = 'Bienvenido';
-    btn.addEventListener('click', askName);
-  </script>
+  </div>  
 </body>
 </html>
