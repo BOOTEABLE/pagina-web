@@ -26,16 +26,6 @@
       position: relative;
     }
 
-    #videoRobot {
-  position: absolute;
-  top: 165px; /* justo arriba del cuadro */
-  left: 50%;
-  width: 150px;
-  transform: translateX(-50%);
-  pointer-events: none;
-  z-index: 3;
-}
-
     .container {
       background: #1e1e1e;
       padding: 2.5rem;
@@ -43,8 +33,18 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
       max-width: 600px;
       width: 90%;
-      position: relative;
+      position: relative; /* clave para posicionar el video relativo al cuadro */
       z-index: 1;
+    }
+
+    #videoRobot {
+      position: absolute;
+      top: -150px;/* ajusta esta altura según la apariencia que desees */
+      left: 50%;
+      width: 150px;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 3;
     }
 
     .logo {
@@ -107,14 +107,14 @@
   </style>
 </head>
 <body>
-  <!-- VIDEO ENCIMA DEL CUADRO -->
-  <video autoplay muted loop id="videoRobot">
-    <source src="robot.webm" type="video/webm">
-    Tu navegador no soporta el formato de video.
-  </video>
 
-  <!-- CONTENEDOR PRINCIPAL -->
+  <!-- CONTENEDOR PRINCIPAL CON VIDEO DENTRO -->
   <div class="container">
+    <video autoplay muted loop id="videoRobot">
+      <source src="robot.webm" type="video/webm">
+      Tu navegador no soporta el formato de video.
+    </video>
+
     <div class="logo">NOCTIS</div>
     <div class="sub">Donde tu web crece, sin que nada te cueste.</div>
     <h1 id="greeting">Bienvenido</h1>
